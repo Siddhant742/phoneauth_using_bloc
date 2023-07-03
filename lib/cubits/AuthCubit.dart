@@ -4,7 +4,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthCubit extends Cubit<AuthState>{
   FirebaseAuth _auth = FirebaseAuth.instance;
-  AuthCubit(): super(AuthInitialState());
+  AuthCubit(): super(AuthInitialState()){
+    User? CurrentUser = _auth.currentUser;
+    if(CurrentUser != null){
+      emit(AuthLoggedInState(CurrentUser));
+    }
+    else {
+      emit(AuthLoggedOutState());
+    }
+  }
     String? _verificationId;
     void SignInWithPhone ( PhoneAuthCredential credential) async{
       try{

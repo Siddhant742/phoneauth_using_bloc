@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          child: Text('Hello MotherFuckers!',
+          child: Text('Hello Guys!',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,

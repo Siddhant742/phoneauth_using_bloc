@@ -50,7 +50,10 @@ class AuthCubit extends Cubit<AuthState>{
       PhoneAuthCredential credential  = PhoneAuthProvider.credential(verificationId: _verificationId!, smsCode: otp);
       SignInWithPhone(credential);
     }
-
+    void LogOut(){
+      _auth.signOut();
+      emit(AuthLoggedOutState());
+    }
 
 
 }
